@@ -1,1 +1,8 @@
-V0.4.1 branch created from v0.4-badge-expand. Official badge icons and credits drawer integration pending index update.
+V0.4.1 stable checkpoint created.
+
+Branch: v0.4.1-badge-icons
+Includes:
+- Kanto badge sprite presentation using PokéAPI item sprite URLs
+- automatic text fallback if badge images fail to load
+- Credits / Tribute drawer
+- preserved game picker, version picker, starter picker, notes, optional layers, progress bars, local save, checklist expansion, trade goals, rare encounters, legends, glitches, Living Dex, shiny goals, and challenge goals
