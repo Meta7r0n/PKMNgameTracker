@@ -1,0 +1,9 @@
+V0.4.2 stability build
+
+Branch updated: v0.4.1-badge-icons
+Purpose: fix iOS/Safari initialization failure.
+
+Changes:
+- Replaced unsafe inline badge image onerror string with safe DOM-created image fallback.
+- Preserved V0.4 structure: game picker, version picker, starter picker, notes, optional layers, badge box, tribute drawer, expandable detail rows, local save, secrets/glitches, trades, Living Dex, shiny goals, and challenges.
+- Updated visible header/status to V0.4.2 stability build.
