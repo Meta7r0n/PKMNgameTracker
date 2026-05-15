@@ -4,59 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ef4444">
-<title>Pokemon Game Completion Tracker V0.8.2 Export Sprite Polish</title>
+<title>Pokemon Game Completion Tracker V0.9 HOF Banner Lab</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(250,204,21,.4);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#fff3a4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#ffcb05;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
 </head>
 <body>
-<div class="boot"><h1>Loading V0.8.2 export sprite polish…</h1><p>Making exported Pokémon team sprites clearer and more consistent.</p><div class="bar"><div class="fill"></div></div></div>
+<div class="boot"><h1>Loading V0.9 banner lab…</h1><p>Pass 1: clarifying Hall of Fame image upload as the saved banner source.</p><div class="bar"><div class="fill"></div></div></div>
 <script>
 (async function(){
-  const baseUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/d6d1707fac6e12e8655f4bff369a3a4e1ddb69fe/index.html';
+  const baseUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/v0.8.2-stable/index.html';
   try{
-    let html=await fetch(baseUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Base build fetch failed');return r.text();});
+    let html=await fetch(baseUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Stable build fetch failed');return r.text();});
 
-    html=html.replace('Pokemon Game Completion Tracker V0.7','Pokemon Game Completion Tracker V0.8.2');
-    html=html.replace('V0.7 export lab · shareable Trainer Card PNG','V0.8.2 export sprite polish · clearer team sprites');
-    html=html.replace('V0.7 adds export/share from each saved Hall of Fame Trainer Card.','V0.8.2 improves exported team Pokémon sprites while preserving V0.7 share/export.');
-    html=html.replace('Ready · V0.7 export lab','Ready · V0.8.2 export sprite polish');
-    html=html.replace('V0.7 can export a shareable PNG from any saved card.','V0.8.2 can export a shareable PNG with polished team sprites from any saved card.');
-    html=html.replace('Save a card, then hit Export Card to generate a PNG. On iPhone, it will try the native share sheet first.','Save a card, then hit Export Card to generate a PNG. Recognized Kanto team names show clearer sprites on-card and in export.');
+    html=html.replace('Pokemon Game Completion Tracker V0.8.2 Export Sprite Polish','Pokemon Game Completion Tracker V0.9 Banner Source Lab');
+    html=html.replace('Loading V0.8.2 export sprite polish…','Loading V0.9 banner source lab…');
+    html=html.replace('Making exported Pokémon team sprites clearer and more consistent.','Pass 1: wiring the uploaded Hall of Fame image as the saved banner source.');
 
-    // Preserve tested V0.7.3 footer balance.
-    html=html.replace("ctx.fillText('meta7r0n.github.io/PKMNgameTracker',76,H-42);","ctx.fillText('meta7r0n.github.io/PKMNgameTracker',76,H-80);");
-    html=html.replace("roundRect(ctx,76,1370,928,70,18,true,true);","roundRect(ctx,76,1338,928,76,18,true,true);");
-    html=html.replace("fitText(ctx,entry.notes,104,1412,870,27,2);","fitText(ctx,entry.notes,104,1378,870,27,2);");
-
-    // On-screen app polish preserved from V0.8.1.
-    html=html.replace('.tc-slot em{font-style:normal;color:#fff3a4;margin-right:5px}',
-      '.tc-slot em{font-style:normal;color:#fff3a4;margin-right:4px;min-width:28px;text-align:right}.tc-slot{display:flex;align-items:center;gap:9px;min-height:62px}.tc-team-sprite{width:46px;height:46px;object-fit:contain;image-rendering:pixelated;background:radial-gradient(circle,#ffffff 0%,#fef3c7 48%,rgba(255,255,255,.18) 72%);border:1px solid rgba(255,255,255,.28);border-radius:15px;padding:4px;flex:0 0 auto;box-shadow:0 0 14px rgba(255,243,164,.22), inset 0 0 10px rgba(255,255,255,.22)}.tc-slot-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}'
-    );
-
-    const spriteHelpers = `
-const POKE_IDS={bulbasaur:1,ivysaur:2,venusaur:3,charmander:4,charmeleon:5,charizard:6,squirtle:7,wartortle:8,blastoise:9,caterpie:10,metapod:11,butterfree:12,weedle:13,kakuna:14,beedrill:15,pidgey:16,pidgeotto:17,pidgeot:18,rattata:19,raticate:20,spearow:21,fearow:22,ekans:23,arbok:24,pikachu:25,raichu:26,sandshrew:27,sandslash:28,nidoranf:29,nidorina:30,nidoqueen:31,nidoranm:32,nidorino:33,nidoking:34,clefairy:35,clefable:36,vulpix:37,ninetales:38,jigglypuff:39,wigglytuff:40,zubat:41,golbat:42,oddish:43,gloom:44,vileplume:45,paras:46,parasect:47,venonat:48,venomoth:49,diglett:50,dugtrio:51,meowth:52,persian:53,psyduck:54,golduck:55,mankey:56,primeape:57,growlithe:58,arcanine:59,poliwag:60,poliwhirl:61,poliwrath:62,abra:63,kadabra:64,alakazam:65,machop:66,machoke:67,machamp:68,bellsprout:69,weepinbell:70,victreebel:71,tentacool:72,tentacruel:73,geodude:74,graveler:75,golem:76,ponyta:77,rapidash:78,slowpoke:79,slowbro:80,magnemite:81,magneton:82,farfetchd:83,doduo:84,dodrio:85,seel:86,dewgong:87,grimer:88,muk:89,shellder:90,cloyster:91,gastly:92,haunter:93,gengar:94,onix:95,drowzee:96,hypno:97,krabby:98,kingler:99,voltorb:100,electrode:101,exeggcute:102,exeggutor:103,cubone:104,marowak:105,hitmonlee:106,hitmonchan:107,lickitung:108,koffing:109,weezing:110,rhyhorn:111,rhydon:112,chansey:113,tangela:114,kangaskhan:115,horsea:116,seadra:117,goldeen:118,seaking:119,staryu:120,starmie:121,mrmime:122,scyther:123,jynx:124,electabuzz:125,magmar:126,pinsir:127,tauros:128,magikarp:129,gyarados:130,lapras:131,ditto:132,eevee:133,vaporeon:134,jolteon:135,flareon:136,porygon:137,omanyte:138,omastar:139,kabuto:140,kabutops:141,aerodactyl:142,snorlax:143,articuno:144,zapdos:145,moltres:146,dratini:147,dragonair:148,dragonite:149,mewtwo:150,mew:151};
-function normalizePokemonName(name){return String(name||'').toLowerCase().replace(/♀|female/g,'f').replace(/♂|male/g,'m').replace(/[^a-z0-9]/g,'');}
-function teamSpriteUrl(name){const key=normalizePokemonName(name);const id=POKE_IDS[key];if(!id)return'';return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/'+id+'.png';}
-function renderTeamSlot(i,name){const label=esc(name||'Empty slot');const url=teamSpriteUrl(name);const img=url?'<img class="tc-team-sprite" src="'+url+'" alt="'+label+'" loading="lazy" onerror="this.remove()">':'';return '<div class="tc-slot"><em>'+(i+1)+'.</em>'+img+'<span class="tc-slot-name">'+label+'</span></div>';}
+    const injection = `
+    html=html.replace('Pokemon Game Completion Tracker V0.8.2','Pokemon Game Completion Tracker V0.9');
+    html=html.replace('V0.8.2 export sprite polish · clearer team sprites','V0.9 banner lab · HOF image saved as banner source');
+    html=html.replace('V0.8.2 improves exported team Pokémon sprites while preserving V0.7 share/export.','V0.9 begins Hall of Fame image banner support while preserving V0.8.2 team sprites and export.');
+    html=html.replace('Ready · V0.8.2 export sprite polish','Ready · V0.9 banner source lab');
+    html=html.replace('V0.8.2 can export a shareable PNG with polished team sprites from any saved card.','V0.9 stores the uploaded Hall of Fame image as a future export banner source.');
+    html=html.replace('Save a card, then hit Export Card to generate a PNG. Recognized Kanto team names show clearer sprites on-card and in export.','Pass 1: upload a Hall of Fame image and save the card. The image is now explicitly treated as the saved banner source for the next passes.');
+    html=html.replace('Screenshot/photo','Hall of Fame banner image');
+    html=html.replace('Optional image. Large files are automatically resized for local save.','Banner source optional. Upload your Hall of Fame screenshot/photo here; it saves locally with the Trainer Card.');
+    html=html.replace('Image ready. It will be saved with the card.','Banner source ready. It will be saved locally with the card.');
+    html=html.replace('Existing image loaded. Choose a new image to replace it.','Existing banner source loaded. Choose a new image to replace it.');
+    html=html.replace('No image saved for this entry.','No banner source saved for this entry yet.');
 `;
-    html=html.replace("function hofPlus(o){let arr=hof.slice();if(o&&o.entry)arr=arr.filter(x=>x.id!==o.entry.id).concat([o.entry]);return arr;}",
-      "function hofPlus(o){let arr=hof.slice();if(o&&o.entry)arr=arr.filter(x=>x.id!==o.entry.id).concat([o.entry]);return arr;}"+spriteHelpers
-    );
 
-    html=html.replace("${[0,1,2,3,4,5].map(i=>`<div class=\"tc-slot\"><em>${i+1}.</em>${esc(team[i]||'Empty slot')}</div>`).join('')}",
-      "${[0,1,2,3,4,5].map(i=>renderTeamSlot(i,team[i])).join('')}"
-    );
-
-    // Stronger exported PNG sprite readability.
-    html=html.replace("ctx.fillStyle='white';ctx.font='800 24px system-ui';fitText(ctx,team[i]||'Empty slot',x+64,y+37,330,28,1);",
-      "const pokeName=team[i]||'Empty slot';const pokeUrl=teamSpriteUrl(pokeName);if(pokeUrl){ctx.save();ctx.shadowColor='rgba(255,243,164,.70)';ctx.shadowBlur=22;ctx.fillStyle='rgba(255,255,255,.28)';roundRect(ctx,x+48,y+3,70,52,16,true,false);ctx.restore();ctx.save();ctx.fillStyle='rgba(255,243,164,.58)';roundRect(ctx,x+53,y+8,60,42,14,true,false);ctx.restore();const pokeImg=await loadImage(pokeUrl);if(pokeImg)ctx.drawImage(pokeImg,x+55,y+1,58,58);}ctx.fillStyle='white';ctx.font='800 24px system-ui';fitText(ctx,pokeName,pokeUrl?x+132:x+64,y+37,pokeUrl?254:330,28,1);"
-    );
+    html=html.replace('document.write(html);', injection + '\n    document.write(html);');
 
     document.open();
     document.write(html);
     document.close();
   }catch(err){
-    document.querySelector('.boot').innerHTML='<h1>Startup error</h1><p>'+String(err.message||err)+'</p><p>Refresh once, or switch back to the V0.7.3 stable branch if this persists.</p>';
+    document.querySelector('.boot').innerHTML='<h1>Startup error</h1><p>'+String(err.message||err)+'</p><p>Refresh once, or switch back to V0.8.2 stable if this persists.</p>';
   }
 })();
 </script>
