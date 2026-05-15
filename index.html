@@ -4,29 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ef4444">
-<title>Pokemon Game Completion Tracker V0.9 HOF Banner Lab</title>
+<title>Pokemon Game Completion Tracker V0.9 HOF Banner Export Lab</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(250,204,21,.4);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#fff3a4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#ffcb05;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
 </head>
 <body>
-<div class="boot"><h1>Loading V0.9 banner lab…</h1><p>Pass 2: adding faint on-screen Trainer Card banner preview.</p><div class="bar"><div class="fill"></div></div></div>
+<div class="boot"><h1>Loading V0.9 banner export lab…</h1><p>Pass 3: adding uploaded Hall of Fame image as a faint PNG header banner.</p><div class="bar"><div class="fill"></div></div></div>
 <script>
 (async function(){
   const baseUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/v0.8.2-stable/index.html';
   try{
     let html=await fetch(baseUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Stable build fetch failed');return r.text();});
 
-    html=html.replace('Pokemon Game Completion Tracker V0.8.2 Export Sprite Polish','Pokemon Game Completion Tracker V0.9 Banner Preview Lab');
-    html=html.replace('Loading V0.8.2 export sprite polish…','Loading V0.9 banner preview lab…');
-    html=html.replace('Making exported Pokémon team sprites clearer and more consistent.','Pass 2: showing uploaded Hall of Fame images faintly behind the on-screen card header.');
+    html=html.replace('Pokemon Game Completion Tracker V0.8.2 Export Sprite Polish','Pokemon Game Completion Tracker V0.9 HOF Banner Export Lab');
+    html=html.replace('Loading V0.8.2 export sprite polish…','Loading V0.9 banner export lab…');
+    html=html.replace('Making exported Pokémon team sprites clearer and more consistent.','Pass 3: using uploaded Hall of Fame image as a faint banner layer in PNG export.');
 
     const injection = `
     html=html.replace('Pokemon Game Completion Tracker V0.8.2','Pokemon Game Completion Tracker V0.9');
-    html=html.replace('V0.8.2 export sprite polish · clearer team sprites','V0.9 banner lab · on-card HOF banner preview');
+    html=html.replace('V0.8.2 export sprite polish · clearer team sprites','V0.9 banner export lab · HOF image header banner');
     html=html.replace('V0.8.2 improves exported team Pokémon sprites while preserving V0.7 share/export.','V0.9 adds Hall of Fame image banner support while preserving V0.8.2 team sprites and export.');
-    html=html.replace('Ready · V0.8.2 export sprite polish','Ready · V0.9 banner preview lab');
-    html=html.replace('V0.8.2 can export a shareable PNG with polished team sprites from any saved card.','V0.9 shows the uploaded Hall of Fame image as a faint banner preview on the Trainer Card.');
-    html=html.replace('Save a card, then hit Export Card to generate a PNG. Recognized Kanto team names show clearer sprites on-card and in export.','Pass 2: uploaded Hall of Fame images now appear faintly as a Trainer Card banner preview. Export banner support comes next.');
+    html=html.replace('Ready · V0.8.2 export sprite polish','Ready · V0.9 banner export lab');
+    html=html.replace('V0.8.2 can export a shareable PNG with polished team sprites from any saved card.','V0.9 exports the uploaded Hall of Fame image as a faint header banner when available.');
+    html=html.replace('Save a card, then hit Export Card to generate a PNG. Recognized Kanto team names show clearer sprites on-card and in export.','Pass 3: uploaded Hall of Fame images now appear faintly on-screen and in the exported PNG header.');
     html=html.replace('Screenshot/photo','Hall of Fame banner image');
     html=html.replace('Optional image. Large files are automatically resized for local save.','Banner source optional. Upload your Hall of Fame screenshot/photo here; it saves locally with the Trainer Card.');
     html=html.replace('Image ready. It will be saved with the card.','Banner source ready. It will be saved locally with the card.');
@@ -34,6 +34,7 @@
     html=html.replace('No image saved for this entry.','No banner source saved for this entry yet.');
     html=html.replace('</style>', '.tc-banner-bg{position:absolute;left:0;right:0;top:0;width:100%;height:255px;object-fit:cover;opacity:.18;filter:blur(1px) saturate(1.15);mix-blend-mode:screen;z-index:1;pointer-events:none}.trainer-card:after{content:"";position:absolute;left:0;right:0;top:0;height:285px;background:linear-gradient(180deg,rgba(15,23,42,.55),rgba(15,23,42,.18),transparent);z-index:1;pointer-events:none}.tc-idbar,.tc-body{z-index:2}</style>');
     html=html.replace('</body>', '<script>(function(){function applyBannerPreview(){document.querySelectorAll(".trainer-card").forEach(function(card){if(card.querySelector(".tc-banner-bg"))return;var srcImg=card.querySelector(".tc-photo img");if(!srcImg||!srcImg.src)return;var banner=document.createElement("img");banner.className="tc-banner-bg";banner.alt="";banner.setAttribute("aria-hidden","true");banner.src=srcImg.src;card.insertBefore(banner,card.firstChild);});}setInterval(applyBannerPreview,800);if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",applyBannerPreview);else applyBannerPreview();})();<\\/script></body>');
+    html=html.replace("ctx.fill();ctx.strokeStyle='#ffcb05';", "ctx.fill();const bannerImg=await loadImage(entry.image);if(bannerImg){const bx=48,by=48,bw=W-96,bh=310;ctx.save();roundRect(ctx,bx,by,bw,bh,34,false,false);ctx.clip();const scale=Math.max(bw/bannerImg.width,bh/bannerImg.height);const dw=bannerImg.width*scale,dh=bannerImg.height*scale;const dx=bx+(bw-dw)/2,dy=by+(bh-dh)/2;ctx.globalAlpha=.24;ctx.drawImage(bannerImg,dx,dy,dw,dh);ctx.globalAlpha=1;const bannerOverlay=ctx.createLinearGradient(bx,by,bx,by+bh);bannerOverlay.addColorStop(0,'rgba(15,23,42,.62)');bannerOverlay.addColorStop(.55,'rgba(37,99,235,.38)');bannerOverlay.addColorStop(1,'rgba(124,58,237,.22)');ctx.fillStyle=bannerOverlay;ctx.fillRect(bx,by,bw,bh);ctx.restore();}ctx.strokeStyle='#ffcb05';");
 `;
 
     html=html.replace('document.write(html);', injection + '\n    document.write(html);');
