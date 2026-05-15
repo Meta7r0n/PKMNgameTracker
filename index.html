@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ef4444">
-<title>Pokemon Game Completion Tracker V0.7.1 Export Polish</title>
+<title>Pokemon Game Completion Tracker V0.7.2 Export Footer Polish</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(250,204,21,.4);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#fff3a4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#ffcb05;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
 </head>
 <body>
-<div class="boot"><h1>Loading V0.7.1 export polish…</h1><p>Applying safe footer spacing for Trainer Card PNG export.</p><div class="bar"><div class="fill"></div></div></div>
+<div class="boot"><h1>Loading V0.7.2 export polish…</h1><p>Applying final safe footer spacing for Trainer Card PNG export.</p><div class="bar"><div class="fill"></div></div></div>
 <script>
 (async function(){
   const baseUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/d6d1707fac6e12e8655f4bff369a3a4e1ddb69fe/index.html';
   try{
     let html=await fetch(baseUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Base build fetch failed');return r.text();});
-    html=html.replace('Pokemon Game Completion Tracker V0.7','Pokemon Game Completion Tracker V0.7.1');
-    html=html.replace('V0.7 export lab · shareable Trainer Card PNG','V0.7.1 export polish · safer footer spacing');
-    html=html.replace('V0.7 adds export/share from each saved Hall of Fame Trainer Card.','V0.7.1 adds safer PNG footer spacing while preserving export/share.');
-    html=html.replace('Ready · V0.7 export lab','Ready · V0.7.1 export polish');
-    html=html.replace("ctx.fillText('meta7r0n.github.io/PKMNgameTracker',76,H-42);","ctx.fillText('meta7r0n.github.io/PKMNgameTracker',76,H-76);");
-    html=html.replace("roundRect(ctx,76,1370,928,70,18,true,true);","roundRect(ctx,76,1338,928,76,18,true,true);");
-    html=html.replace("fitText(ctx,entry.notes,104,1412,870,27,2);","fitText(ctx,entry.notes,104,1378,870,27,2);");
+    html=html.replace('Pokemon Game Completion Tracker V0.7','Pokemon Game Completion Tracker V0.7.2');
+    html=html.replace('V0.7 export lab · shareable Trainer Card PNG','V0.7.2 export footer polish · safer bottom spacing');
+    html=html.replace('V0.7 adds export/share from each saved Hall of Fame Trainer Card.','V0.7.2 adds safer PNG footer spacing while preserving export/share.');
+    html=html.replace('Ready · V0.7 export lab','Ready · V0.7.2 export footer polish');
+    html=html.replace("ctx.fillText('meta7r0n.github.io/PKMNgameTracker',76,H-42);","ctx.fillText('meta7r0n.github.io/PKMNgameTracker',76,H-96);");
+    html=html.replace("roundRect(ctx,76,1370,928,70,18,true,true);","roundRect(ctx,76,1318,928,76,18,true,true);");
+    html=html.replace("fitText(ctx,entry.notes,104,1412,870,27,2);","fitText(ctx,entry.notes,104,1358,870,27,2);");
     document.open();
     document.write(html);
     document.close();
