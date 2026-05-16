@@ -4,32 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ef4444">
-<title>Pokemon Game Completion Tracker V0.9.5 Clean Binder Combined Export</title>
+<title>Pokemon Game Completion Tracker V0.10 Achievement Polish Lab</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(250,204,21,.4);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#fff3a4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#ffcb05;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
 </head>
 <body>
-<div class="boot"><h1>Loading V0.9.5 clean Binder combined export…</h1><p>Starting from the stable Binder build and adding one safe combined export button.</p><div class="bar"><div class="fill"></div></div></div>
+<div class="boot"><h1>Loading V0.10 achievement polish lab…</h1><p>Starting from V0.9.5 stable and adding smarter achievement logic.</p><div class="bar"><div class="fill"></div></div></div>
 <script>
 (async function(){
-  const stableUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/v0.9.4-stable/index.html';
+  const stableUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/v0.9.5-stable/index.html';
   try{
-    let source=await fetch(stableUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Stable Binder build fetch failed');return r.text();});
-    source=source.replace('Pokemon Game Completion Tracker V0.9.4 HOF Binder Compact','Pokemon Game Completion Tracker V0.9.5 Clean Binder Combined Export');
-    source=source.replace('Loading V0.9.4 HOF Binder compact…','Loading V0.9.5 clean Binder combined export…');
-    source=source.replace('Compacting the Binder card and restoring Binder team sprites.','Starting from the stable Binder build and adding one safe combined export button.');
-    source=source.replaceAll('V0.9.4','V0.9.5');
-    source=source.replaceAll('BINDER COMPACT','BINDER COMBINED EXPORT');
-    source=source.replaceAll('HOF Binder compact','HOF Binder combined export');
-    source=source.replace('V0.9.5 keeps Binder cards compact with team sprites and two signature moves.','V0.9.5 keeps the stable Binder and adds Preview Combined Export only.');
-    source=source.replace('Save a Hall of Fame entry, then claim it into the HOF Binder as a compact double-sided collectible card.','Save a Hall of Fame entry, claim it into the HOF Binder, then preview/save a combined front-back export.');
-    const oldLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt></body>');";
-    const newLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt><scr'+'ipt src=\"./binder-combined-export-v095.js?v=095clean2\"></scr'+'ipt></body>');";
-    if(!source.includes(oldLine))throw new Error('Stable Binder injection point not found');
-    source=source.replace(oldLine,newLine);
+    let source=await fetch(stableUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('V0.9.5 stable build fetch failed');return r.text();});
+    source=source.replace('Pokemon Game Completion Tracker V0.9.5 Clean Binder Combined Export','Pokemon Game Completion Tracker V0.10 Achievement Polish Lab');
+    source=source.replace('Loading V0.9.5 clean Binder combined export…','Loading V0.10 achievement polish lab…');
+    source=source.replace('Starting from the stable Binder build and adding one safe combined export button.','Starting from V0.9.5 stable and adding smarter achievement logic.');
+    source=source.replaceAll('V0.9.5','V0.10');
+    source=source.replaceAll('BINDER COMBINED EXPORT','ACHIEVEMENT POLISH LAB');
+    source=source.replaceAll('HOF Binder combined export','Achievement polish lab');
+    source=source.replace('V0.10 keeps the stable Binder and adds Preview Combined Export only.','V0.10 adds smarter achievement detection, category counts, next unlock suggestions, and HOF/Binder sync.');
+    source=source.replace('Save a Hall of Fame entry, claim it into the HOF Binder, then preview/save a combined front-back export.','Achievement logic can now summarize progress and sync polished ribbons into the latest HOF/Binder card.');
+    const tag='<scr'+'ipt src="./achievement-polish-v010.js?v=010a"></scr'+'ipt>';
+    source=source.replace('</body>',tag+'</body>');
     document.open();document.write(source);document.close();
   }catch(err){
-    document.querySelector('.boot').innerHTML='<h1>Startup error</h1><p>'+String(err.message||err)+'</p><p>Use v0.9.4-stable if this persists.</p>';
+    document.querySelector('.boot').innerHTML='<h1>Startup error</h1><p>'+String(err.message||err)+'</p><p>Switch back to v0.9.5-stable if this persists.</p>';
   }
 })();
 </script>
