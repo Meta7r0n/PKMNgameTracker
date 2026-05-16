@@ -21,10 +21,10 @@
     source=source.replaceAll('V0.9.4','V0.10');
     source=source.replaceAll('BINDER COMPACT','ACHIEVEMENT POLISH LAB');
     source=source.replaceAll('HOF Binder compact','Achievement polish lab');
-    source=source.replace('V0.10 keeps Binder cards compact with team sprites and two signature moves.','V0.10 keeps the stable Binder/export flow and adds smarter achievement detection.');
+    source=source.replace('V0.10 keeps Binder cards compact with team sprites and two signature moves.','V0.10 keeps the stable Binder/export flow and adds safe manual achievement detection.');
     source=source.replace('Save a Hall of Fame entry, then claim it into the HOF Binder as a compact double-sided collectible card.','Achievement logic can summarize progress and sync polished ribbons into the latest HOF/Binder card.');
     const oldLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt></body>');";
-    const newLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt><scr'+'ipt src=\"./binder-combined-export-v095.js?v=095clean2\"></scr'+'ipt><scr'+'ipt src=\"./achievement-polish-v010.js?v=010c\"></scr'+'ipt><scr'+'ipt src=\"./achievement-close-safe-v010d.js?v=010d1\"></scr'+'ipt></body>');";
+    const newLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt><scr'+'ipt src=\"./binder-combined-export-v095.js?v=095clean2\"></scr'+'ipt><scr'+'ipt src=\"./achievement-polish-safe-v010e.js?v=010e1\"></scr'+'ipt></body>');";
     if(!source.includes(oldLine))throw new Error('Stable Binder injection point not found');
     source=source.replace(oldLine,newLine);
     document.open();document.write(source);document.close();
