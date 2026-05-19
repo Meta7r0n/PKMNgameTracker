@@ -4,27 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ef4444">
-<title>Pokemon Game Completion Tracker V0.14 Region Picker Lab</title>
+<title>Pokemon Game Completion Tracker V0.14.1 Module Workspace Lab</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(250,204,21,.4);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#fff3a4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#ffcb05;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
 </head>
 <body>
-<div class="boot"><h1>Loading V0.14 region picker lab…</h1><p>Starting from V0.13 region swap and adding the modular region picker front door.</p><div class="bar"><div class="fill"></div></div></div>
+<div class="boot"><h1>Loading V0.14.1 module workspace…</h1><p>Unifying Kanto and Johto under one module workspace shell.</p><div class="bar"><div class="fill"></div></div></div>
 <script>
 (async function(){
   const stableUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/v0.9.4-stable/index.html';
   try{
     let source=await fetch(stableUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Stable Binder base fetch failed');return r.text();});
-    source=source.replace('Pokemon Game Completion Tracker V0.9.4 HOF Binder Compact','Pokemon Game Completion Tracker V0.14 Region Picker Lab');
-    source=source.replace('Loading V0.9.4 HOF Binder compact…','Loading V0.14 region picker lab…');
-    source=source.replace('Compacting the Binder card and restoring Binder team sprites.','Starting from V0.13 region swap and adding the modular region picker front door.');
-    source=source.replaceAll('V0.9.4','V0.14');
-    source=source.replaceAll('BINDER COMPACT','REGION PICKER LAB');
-    source=source.replaceAll('HOF Binder compact','Region picker lab');
-    source=source.replace('V0.14 keeps Binder cards compact with team sprites and two signature moves.','V0.14 adds a modular Region Picker front door while preserving V0.13 region switching.');
-    source=source.replace('Save a Hall of Fame entry, then claim it into the HOF Binder as a compact double-sided collectible card.','Choose Kanto or Johto from the new region picker, then load the correct module path.');
+    source=source.replace('Pokemon Game Completion Tracker V0.9.4 HOF Binder Compact','Pokemon Game Completion Tracker V0.14.1 Module Workspace Lab');
+    source=source.replace('Loading V0.9.4 HOF Binder compact…','Loading V0.14.1 module workspace…');
+    source=source.replace('Compacting the Binder card and restoring Binder team sprites.','Unifying Kanto and Johto under one module workspace shell.');
+    source=source.replaceAll('V0.9.4','V0.14.1');
+    source=source.replaceAll('BINDER COMPACT','MODULE WORKSPACE LAB');
+    source=source.replaceAll('HOF Binder compact','Module workspace lab');
+    source=source.replace('V0.14.1 keeps Binder cards compact with team sprites and two signature moves.','V0.14.1 gives Kanto and Johto a shared module workspace while preserving V0.13 switching.');
+    source=source.replace('Save a Hall of Fame entry, then claim it into the HOF Binder as a compact double-sided collectible card.','Region modules now share a consistent workspace shell before full HOF/module isolation.');
     const oldLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt></body>');";
-    const newLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt><scr'+'ipt src=\"./binder-combined-export-v095.js?v=095clean2\"></scr'+'ipt><scr'+'ipt src=\"./achievement-polish-safe-v010e.js?v=010e2\"></scr'+'ipt><scr'+'ipt src=\"./credits-expanded-v010.js?v=010credits1\"></scr'+'ipt><scr'+'ipt src=\"./region-expansion-v011.js?v=011b\"></scr'+'ipt><scr'+'ipt src=\"./johto-activation-v012.js?v=012full1\"></scr'+'ipt><scr'+'ipt src=\"./region-swap-v013.js?v=013stable1\"></scr'+'ipt><scr'+'ipt src=\"./region-picker-v014.js?v=014a\"></scr'+'ipt></body>');";
+    const newLine="html=html.replace('</body>','<scr'+'ipt>('+runtimePatch.toString()+')();</scr'+'ipt><scr'+'ipt src=\"./binder-combined-export-v095.js?v=095clean2\"></scr'+'ipt><scr'+'ipt src=\"./achievement-polish-safe-v010e.js?v=010e2\"></scr'+'ipt><scr'+'ipt src=\"./credits-expanded-v010.js?v=010credits1\"></scr'+'ipt><scr'+'ipt src=\"./region-expansion-v011.js?v=011b\"></scr'+'ipt><scr'+'ipt src=\"./johto-activation-v012.js?v=012full1\"></scr'+'ipt><scr'+'ipt src=\"./region-swap-v013.js?v=013stable1\"></scr'+'ipt><scr'+'ipt src=\"./region-picker-v014.js?v=014a\"></scr'+'ipt><scr'+'ipt src=\"./module-workspace-v0141.js?v=0141b\"></scr'+'ipt></body>');";
     if(!source.includes(oldLine))throw new Error('Stable Binder base injection point not found');
     source=source.replace(oldLine,newLine);
     document.open();document.write(source);document.close();
