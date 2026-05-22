@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f172a">
-<title>PKMN Platform Rebuild V0.15.2 Polish Lab</title>
+<title>PKMN Platform Rebuild V0.15.3 Johto Parity Lab</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(250,204,21,.45);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#fff3a4}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#ffcb05;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
+*{box-sizing:border-box}body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}.boot{max-width:560px;border:1px solid rgba(56,189,248,.45);border-radius:24px;background:linear-gradient(135deg,#1d4ed8,#7c3aed,#111827);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}h1{font-size:1.25rem;margin:0 0 8px;color:#bae6fd}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:16px}.fill{height:100%;width:65%;background:#38bdf8;animation:pulse 1s infinite alternate}@keyframes pulse{to{width:100%}}p{color:#dbeafe;line-height:1.45;font-weight:700}</style>
 </head>
 <body>
-<div class="boot"><h1>Loading V0.15.2 polish lab…</h1><p>Starting from V0.15.1 stable and applying safe component polish.</p><div class="bar"><div class="fill"></div></div></div>
+<div class="boot"><h1>Loading V0.15.3 Johto parity lab…</h1><p>Starting from V0.15.1 stable, applying V0.15.2 polish, then Johto parity data and presentation.</p><div class="bar"><div class="fill"></div></div></div>
 <script>
 (async function(){
   const stableUrl='https://raw.githubusercontent.com/Meta7r0n/PKMNgameTracker/v0.15.1-stable/index.html';
   try{
     let html=await fetch(stableUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('V0.15.1 stable fetch failed');return r.text();});
-    html=html.replace('<title>PKMN Platform Rebuild V0.15.1</title>','<title>PKMN Platform Rebuild V0.15.2 Polish Lab</title>');
-    html=html.replaceAll('V0.15.1 platform stability lab','V0.15.2 polish components lab');
-    html=html.replace('</body>','<scr'+'ipt src="./v0152-polish.js?v=0152a"></scr'+'ipt></body>');
+    html=html.replace('<title>PKMN Platform Rebuild V0.15.1</title>','<title>PKMN Platform Rebuild V0.15.3 Johto Parity Lab</title>');
+    html=html.replaceAll('V0.15.1 platform stability lab','V0.15.3 Johto parity lab');
+    html=html.replace('</body>','<scr'+'ipt src="./v0152-polish.js?v=0152b"></scr'+'ipt><scr'+'ipt src="./v0153-johto-parity.js?v=0153a"></scr'+'ipt></body>');
     document.open();document.write(html);document.close();
   }catch(err){
     document.querySelector('.boot').innerHTML='<h1>Startup error</h1><p>'+String(err.message||err)+'</p><p>Use v0.15.1-stable if this persists.</p>';
